@@ -2,6 +2,7 @@ import React from 'react'
 import assets from '../assets/assets'
 import Title from './Title'
 import ServiceCard from './ServiceCard'
+import { motion } from "motion/react"
 
 
 const Services = ({theme} ) => {
@@ -30,7 +31,13 @@ const Services = ({theme} ) => {
 
   return (
 
-   <div id='services' className={`relative flex flex-col
+   <motion.div
+    initial="hidden"
+    whileInView="visible"
+    transition={{ staggerChildren: 0.2 }}
+    viewport={{once: true}}
+   
+   id='services' className={`relative flex flex-col
     items-center gap-7 px-4 sm:px-12 lg:px-24 xl:px-40
      pt-30 box-sh ${theme === 'dark' ? 'text-gray-700' : ''} dark:text-white/20`}>
     
@@ -47,7 +54,7 @@ const Services = ({theme} ) => {
         }
        </div>
 
-   </div>
+   </motion.div>
 
    
   )
